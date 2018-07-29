@@ -1,0 +1,19 @@
+.loginBox {
+	background-color: green;
+	position: right;
+	padding: 0.5px 1px 10px 1px;
+	box-sizing: border-box;
+}
+.signIn{
+	text-align: right;
+}
+.signIn a{
+	text-decoration: none;
+	font-size: 20px;
+	line-height: 20px;
+	color: white;
+}
+
+.signIn a:hover{
+	color: #ffc107;
+}
