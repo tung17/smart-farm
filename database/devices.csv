@@ -1,1 +1,1 @@
-id,name,type,measured_value,time,status,farmid,areaid,userid
+id,name,type,status,farmid,areaid,userid

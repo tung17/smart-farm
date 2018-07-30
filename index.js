@@ -4,6 +4,7 @@ const bodyparser = require("body-parser");
 var session = require("express-session");
 const urlencodedParser = bodyparser.urlencoded({ extended: false });
 const ejs = require("ejs");
+const { Pool, Client } = require('pg');
 
 app.use(express.static(__dirname+ '/public'));
 app.use(session({
