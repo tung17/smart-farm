@@ -15,3 +15,8 @@ app.get("/", index);
 function index(req, res){
 	res.sendFile(__dirname + "/index.html");
 }
+
+app.get("/login", loginFormGet);
+function loginFormGet(req, res){
+	res.sendFile(__dirname + "/login.html");
+}
