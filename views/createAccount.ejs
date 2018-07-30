@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create your account</title>
+</head>
+<body>
+<% var password %>
+<% var reEnter %>
+<div class="createAccount">
+<form method = "post">
+	<p>Username</p>
+	<input type="text" name="username">
+	<p>Password</p>
+	<input type="text" name="password"><%= password %>
+	<p>Re-enter your password</p>
+	<input type="text" name="reEnter"><%= reEnter %><br>
+	<p>Email</p>
+	<input type="text" name="email">
+	<input type="submit" value="Submit">
+</form>	
+</div>
+</body>
+</html>

@@ -14,14 +14,6 @@ app.use(session({
   secret: 'keyboard cat'}));
 app.set("view engine", "ejs");
 
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'userdatabase',
-  password: 'postgres', //password for user postgres
-  port: 5432,
-});
-
 app.use("/",index);
 
 app.listen(process.env.PORT || 8000);
