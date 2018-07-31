@@ -20,7 +20,7 @@ function index(req, res){
 
 router.get("/login", loginFormGet);
 function loginFormGet(req, res){
-	res.sendFile(__dirname + "/login.html");
+	res.render("login.ejs");
 }
 
 router.post("/login", urlencodedParser, loginFormPost);
@@ -28,17 +28,28 @@ function loginFormPost(req, res){
 	var username = req.body.username;
 	var password = req.body.password;
 
-	usernameTemp = req.body.username;
-	passwordTemp = req.body.password;
+	pool.query('select username, password from userinfo where username=$1 and password=$2',[username, password], (error, response) =>{
+		console.log(error,response);
+		console.log(response.rowCount);
+		if (response.rowCount >=1)
+		{
+			res.redirect("/");
+		}
+		else {
+			var incorrect = "Incorrect username or password.";
+			res.render("login.ejs", { incorrect: incorrect
+			});
+		}
+	});
 }
 
 
-router.get("/sign-in", signInGet);
+router.get("/sign-up", signInGet);
 function signInGet(req, res){
 	res.render("createAccount.ejs");
 };
 
-router.post("/sign-in", urlencodedParser, signInPost);
+router.post("/sign-up", urlencodedParser, signInPost);
 function signInPost(req, res){
   var username = req.body.username,
   password = req.body.password, 
