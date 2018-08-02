@@ -3,18 +3,21 @@ const app = express();
 const bodyparser = require("body-parser");
 const urlencodedParser = bodyparser.urlencoded({ extended: false });
 const ejs = require("ejs");
+const UserRoute = require('./routes/user/AppUser');
+const AreaRoute = require('./routes/area/AppArea');
 
-var index = require('./routes/index');
-var login = require('./routes/login');
-var signup = require('./routes/signup');
-
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname+ '/public'));
 
 app.set("view engine", "ejs");
 
-app.use("/",index);
-app.use("/login", login);
-app.use("/sign-up", signup);
+app.use('/user',UserRoute);
+app.use('/area',AreaRoute);
 
+app.get('/',(req,res)=>
+{
+	res.render("index");
+})
 app.listen(process.env.PORT || 8000);
