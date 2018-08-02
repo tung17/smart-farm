@@ -19,6 +19,7 @@ async function loginFormPost(req, res){
 		console.log(response.rowCount);
 		if (response.rowCount >=1)
 		{
+			req.session.username = username;
 			res.redirect("/");
 		}
 		else {

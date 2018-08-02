@@ -12,6 +12,7 @@ router.get('/',async (req,res)=>
 	await client.query('select * from area',async (err,respond)=>
 	{
 		console.log(respond.rows);
+		console.log(req.session.username);
 		await client.end();
 	});
 	res.send("it's ok");
